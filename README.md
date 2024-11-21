@@ -205,22 +205,21 @@ Built with FastAPI and SQLite, the backend facilitates dimensional analysis of B
 
 ## Setup and Installation
 
-1. Create and activate virtual environment
+1. Activate virtual environment
  ```bash
-   python -m venv btc
-   source btc/Scripts/activate
+   source ./viz/dash/backend/app/btc/Scripts/activate
    ```
 2. Install Dependencies
    ```bash
-   pip install -r requirements.txt
+   pip install -r viz/dash/backend/app/requirements.txt
    ```
 4. Import Data
    ```bash
-   python import_data.py
+   python ./viz/dash/backend/app/import_data.py
    ```
 6. Start Server
    ```bash
-   uvicorn main:app --reload
+   uvicorn --app-dir ./viz/dash/backend/app main:app --reload
    ```
 
 
@@ -279,17 +278,22 @@ Built with React, D3.js, and Three.js, the frontend provides interactive 2D and 
 
 ## Setup and Installation
 
-1. Install dependencies:
+0. Combined command:
+   ```bash
+   (cd viz/dash/frontend && npm install && npm run dev)
+   ```
+   
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start development server:
+3. Start development server:
    ```bash
    npm run dev
    ```
 
-3. Access application: Open browser and navigate to the localhost address shown in terminal
+4. Access application: Open browser and navigate to the localhost address shown in terminal
 
 
 
