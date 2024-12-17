@@ -311,20 +311,12 @@ Built with React, D3.js, and Three.js, the frontend provides interactive 2D and 
    npm install
    ```
 
-<<<<<<< HEAD
 2. Start development server:
-=======
-3. Start development server:
->>>>>>> bd9cf67fe81b1dec9ee0fb8c70649415536005e1
    ```bash
    npm run dev
    ```
 
-<<<<<<< HEAD
 3. Access application: Open browser and navigate to the localhost address shown in terminal
-=======
-4. Access application: Open browser and navigate to the localhost address shown in terminal
->>>>>>> bd9cf67fe81b1dec9ee0fb8c70649415536005e1
 
 
 
