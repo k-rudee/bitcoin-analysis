@@ -1,5 +1,4 @@
-# bitcoin-class-project
-Class project for CSE 6242
+# Bitcoin Node Analysis Project 
 
 # ETL
 This repository organizes and processes Bitcoin blockchain data within Snowflake. The ETL pipeline follows a sequential structure, where each directory and script must be executed in order. The final output, `F_input_address_pairs.sql`, is consumed by the Scala entity mapping code.
