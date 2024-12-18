@@ -1,7 +1,5 @@
-# Bitcoin Node Analysis Project 
-
-
-
+# bitcoin-class-project
+Class project for CSE 6242
 
 # ETL
 This repository organizes and processes Bitcoin blockchain data within Snowflake. The ETL pipeline follows a sequential structure, where each directory and script must be executed in order. The final output, `F_input_address_pairs.sql`, is consumed by the Scala entity mapping code.
@@ -193,129 +191,133 @@ run the script:
 
 # Data Visualization
 
-The data visualization component consists of a FastAPI backend for data processing and a React frontend for interactive visualization of Bitcoin entity clusters.
+## Backend Overview 
 
-## Backend
+This backend system facilitates dimensional analysis of Bitcoin entities through Principal Component Analysis (PCA) and clustering techniques. Built with FastAPI and SQLite, it provides efficient querying of high-dimensional clustering results for visualization purposes.
 
-## Overview
+## Project Structure
 
-Built with FastAPI and SQLite, the backend facilitates dimensional analysis of Bitcoin entities through PCA and clustering techniques.
+app/
+main.py
++ Contains the FastAPI application and endpoint definitions.
 
+models.py
++ Defines the SQLAlchemy models for database interactions.
 
-## Setup and Installation
+database.py
++ Handles the database connection setup and session management.
 
-<<<<<<< HEAD
-1. Create and activate virtual environment
- ```bash
-   python -m venv btc
-   source btc/Scripts/activate
-   ```
-2. Install Dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Import Data
-   ```bash
-   python import_data.py
-   ```
-6. Start Server
-   ```bash
-   uvicorn main:app --reload
-=======
-1. Activate virtual environment
- ```bash
-   source ./viz/dash/backend/app/btc/Scripts/activate
-   ```
-2. Install Dependencies
-   ```bash
-   pip install -r viz/dash/backend/app/requirements.txt
-   ```
-4. Import Data
-   ```bash
-   python ./viz/dash/backend/app/import_data.py
-   ```
-6. Start Server
-   ```bash
-   uvicorn --app-dir ./viz/dash/backend/app main:app --reload
->>>>>>> bd9cf67fe81b1dec9ee0fb8c70649415536005e1
-   ```
+import_data.py
++ A script for ingesting data into the application.
+
+requirements.txt
++ Lists all the dependencies required for the project.
+
+.env
++ Stores environment variables for database credentials and configuration details.
 
 
-## API Endpoints
-
-1. GET /api/cluster-data
-
-Returns sampled cluster data for 3D visualization
-Query Parameters:
-
-sample_size (int, default=1000): Number of entities to return
-
-Response: Array of entities with PCA coordinates and cluster probabilities
+data/
+dataset_pca_cluster_sample.csv
++ A sample dataset containing entity clustering information used in the application.
 
 
-2. GET /api/entity/{entity_id}
 
-Returns detailed data for a specific entity
-Path Parameters:
-
-entity_id (int): Unique identifier for Bitcoin entity
-
-Response: Entity details including transaction metrics and cluster memberships
+## Quick Start
 
 
-## Frontend
+0. Consoldiated Command to do everything below at once
+```bash
+source ./viz/dash/backend/app/btc/Scripts/activate && \
+pip install -r ./viz/dash/backend/app/requirements.txt && \
+python ./viz/dash/backend/app/import_data.py && \
+uvicorn --app-dir ./viz/dash/backend/app main:app --reload
+```
 
-## Overview 
-
-Built with React, D3.js, and Three.js, the frontend provides interactive 2D and 3D visualizations of entity clustering results.
-
-## Key Components
-
-1. App.jsx
-   
-+ Manages data loading and processing
-+ Handles tab navigation between analysis views
-+ Controls global styling and theme settings
-
-2. Clustering3D.jsx 
-
-+ Interactive 3D point cloud visualization
-+ Real-time entity search and highlighting
-+ Adjustable sample size controls
-
-3. StatAnalysisChart.jsx 
-
-+ Entity type distribution (Pie Chart)
-+ Transaction size distribution (Histogram)
-
-4. StatisticsPanel.jsx
-  
-+ Displays key dataset metrics
-+ Provides summary statistics cards
-
-
-## Setup and Installation
-
-<<<<<<< HEAD
-1. Install dependencies:
-=======
-0. Combined command:
-   ```bash
-   (cd viz/dash/frontend && npm install && npm run dev)
-   ```
-   
+1. Create and activate virtual environment:
+```bash
+source ./viz/dash/backend/app/btc/Scripts/activate
+```
 2. Install dependencies:
->>>>>>> bd9cf67fe81b1dec9ee0fb8c70649415536005e1
-   ```bash
-   npm install
-   ```
+```bash
+pip install -r viz/dash/backend/app/requirements.txt
+```
+3. change interpreter to use btc venv path..
 
-2. Start development server:
-   ```bash
-   npm run dev
-   ```
+4. Import data:
+```bash
+python ./viz/dash/backend/app/import_data.py
+```
+5. Start server:
+```bash
+uvicorn --app-dir ./viz/dash/backend/app main:app --reload
+```
 
-3. Access application: Open browser and navigate to the localhost address shown in terminal
+
+
+
+
+
+# FrontEnd Overview
+The frontend system provides a highly interactive interface for visualizing and analyzing Bitcoin entity clustering data. Built with React, D3.js, and Three.js, it seamlessly integrates 2D statistical analysis and 3D clustering visualizations to enhance user understanding of Bitcoin clustering results.
+
+## Project Structure
+
+public/data/
+
+entity2.csv
++ Data file containing network statistics.
+
+src/components/
+
+Clustering3D.jsx
++ Component for 3D clustering visualization using the dataset.
+
+StatAnalysisChart.jsx
++ Renders statistical analysis charts for visual insights.
+
+StatisticsPanel.jsx
++ Displays key statistical summaries in the application.
+
+src/
+App.jsx
++ The main React component serving as the application entry point.
+
+index.css
++ Defines global CSS styles for the application.
+
+index.js
++ Entry point for the React application, rendering the root component.
+
+utils.js
++ Contains utility functions used across the application.
+
+Root Files
+
+package.json
++ Manages project dependencies and scripts for building, testing, and running the application.
+
+README.md
++ Documentation for the project, including instructions and usage details.
+
+
+
+## Quick Start
+
+0. Consolidated Command to do everything below at once
+
+```bash
+(cd viz/dash/frontend && npm install && npm run dev)
+```
+1. Install dependencies 
+```bash
+npm install 
+```
+2. Start the development server
+```bash
+npm run dev
+```
+3. Access the application on localhost to view visulizations 
 
 
 
